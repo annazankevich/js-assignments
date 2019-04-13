@@ -30,7 +30,17 @@
  *
  */
 function getFizzBuzz(num) {
-    throw new Error('Not implemented');
+    for (; num <= 10000000; num++) {
+        if (num % 3 === 0 && num % 5 === 0) {
+            return "FizzBuzz";
+        } else if (num % 3 === 0) {
+            return "Fizz"
+        } else if (num % 5 === 0) {
+            return "Buzz";
+        } else {
+            return num;
+        }
+    }
 }
 
 
@@ -46,7 +56,10 @@ function getFizzBuzz(num) {
  *   10 => 3628800
  */
 function getFactorial(n) {
-    throw new Error('Not implemented');
+    if (n===1) {
+        return n;
+    }
+    else {return n*getFactorial(n-1);}
 }
 
 
@@ -63,7 +76,9 @@ function getFactorial(n) {
  *   -1,1  =>  0  ( = -1 + 0 + 1 )
  */
 function getSumBetweenNumbers(n1, n2) {
-    throw new Error('Not implemented');
+    var n = (n2 - n1 + 1);
+    var sum = n * (n1 + n2) / 2;
+    return sum;
 }
 
 
@@ -82,7 +97,8 @@ function getSumBetweenNumbers(n1, n2) {
  *   10,10,10 =>  true
  */
 function isTriangle(a,b,c) {
-    throw new Error('Not implemented');
+  if(a+b > c && a+c > b && b+c > a) return true;
+  return false;
 }
 
 
@@ -209,7 +225,7 @@ function getIntervalString(a, b, isStartIncluded, isEndIncluded) {
  * 'noon' => 'noon'
  */
 function reverseString(str) {
-    throw new Error('Not implemented');
+    return str.split('').reverse().join('');
 }
 
 
@@ -226,7 +242,15 @@ function reverseString(str) {
  *   34143 => 34143
  */
 function reverseInteger(num) {
-    throw new Error('Not implemented');
+    return (
+        parseFloat(
+          num
+            .toString()
+            .split('')
+            .reverse()
+            .join('')
+        ) * Math.sign(num)
+      )   
 }
 
 
@@ -270,8 +294,18 @@ function isCreditCardNumber(ccn) {
  *   165536 (1+6+5+5+3+6 = 26,  2+6 = 8) => 8
  */
 function getDigitalRoot(num) {
-    throw new Error('Not implemented');
-}
+    var total = 0;
+    if(num.toString().length == 1){
+        var iNum = parseInt(num);
+        return iNum;
+    }else{
+        num.toString().split("").forEach( function(value){
+            var iValue = parseInt(value);
+            return total += iValue;
+        });
+        return getDigitalRoot(total);
+    }
+     }
 
 
 /**
