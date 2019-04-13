@@ -201,7 +201,9 @@ function extractEmails(str) {
  *
  */
 function getRectangleString(width, height) {
-    throw new Error('Not implemented');
+    return '\u250C' + '\u2500'.repeat(width-2) + '\u2510\n'+
+          ('\u2502' + '\u0020'.repeat(width-2) + '\u2502\n').repeat(height-2) +
+           '\u2514' + '\u2500'.repeat(width-2) + '\u2518\n'
 }
 
 
@@ -267,7 +269,11 @@ function isString(value) {
  *   'K♠' => 51
  */
 function getCardId(value) {
-    throw new Error('Not implemented');
+  const cards = ['A♣','2♣','3♣','4♣','5♣','6♣','7♣','8♣','9♣','10♣','J♣','Q♣','K♣',
+                  'A♦','2♦','3♦','4♦','5♦','6♦','7♦','8♦','9♦','10♦','J♦','Q♦','K♦',
+                  'A♥','2♥','3♥','4♥','5♥','6♥','7♥','8♥','9♥','10♥','J♥','Q♥','K♥',
+                  'A♠','2♠','3♠','4♠','5♠','6♠','7♠','8♠','9♠','10♠','J♠','Q♠','K♠'];
+    return cards.indexOf(value);
 }
 
 
