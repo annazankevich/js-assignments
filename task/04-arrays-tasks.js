@@ -250,7 +250,7 @@ function getMovingSum(arr) {
  * [ "a" ] => []
  */
 function getSecondItems(arr) {
-   throw new Error('Not implemented');
+    return arr.reduce((prev, curr, ind) => (ind % 2) ? prev.concat(curr) : prev, []);
 }
 
 
